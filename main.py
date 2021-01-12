@@ -34,6 +34,12 @@ def conversation_summary():
   quit()
 
 
+def generic_response():
+  response_list = ["Hmm.", 
+  "That's intersting!", 
+  "Oh really?", 
+  "Wonderful!",
+  "That's pretty unique"]
 
 
 def ask_name(): # learn and store user's name, say greeting
