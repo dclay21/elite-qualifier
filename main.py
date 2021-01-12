@@ -39,7 +39,9 @@ def generic_response():
   "That's intersting!", 
   "Oh really?", 
   "Wonderful!",
-  "That's pretty unique"]
+  "That's pretty unique :)",
+  "You don't say..."]
+  print (random.choice(response_list))
 
 
 def ask_name(): # learn and store user's name, say greeting
@@ -80,6 +82,8 @@ def sports_questions(): # questions about favorite sport and player, stores as v
     favorite_player = input("My favorite player is Kobe Bryant, what about you?\n\n")
   elif favorite_sport == "volleyball":
     favorite_player = input("My favorite player is Lexi Sun, and you?\n\n")
+
+  generic_response()
   
   input("\nDo you play sports? Do you enjoy it?\n\n")
   print("\nInteresting, I just like to watch them.\n")
@@ -90,7 +94,8 @@ def weather_questions():  # asks and stores weather preference of user, then get
   weather_preference = input(f'\nSo, {user_name}, what type of weather do you prefer?\n\n')
   if weather_preference == 'q':
     conversation_summary()
-  print("\nWow! I don't really have a preference (I am a bot after all, so weather doesn't affect me), but I know my creator enjoys the beach. He also wishes he could go skiing though.\n")
+  generic_response()
+  print("\nI don't really have a preference (I am a bot after all, so weather doesn't affect me), but I know my creator enjoys the beach. He also wishes he could go skiing though.\n")
   
   print("Ok, let's try something. Tell me where you live. I won't stalk you.\n")
   city_input = input("US City: ").title()
