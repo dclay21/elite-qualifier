@@ -43,13 +43,15 @@ def generic_response():
   "You don't say..."]
   print (random.choice(response_list))
 
-
-def ask_name(): # learn and store user's name, say greeting
+# learn and store user's name, say greeting
+def ask_name(): 
   global user_name
   user_name = input("I'm ConvoBot, what's your name?\n\n")
   print(f"\nHi, {user_name}! It's nice to meet you.\n")
 
-def current_mood(): # starts conversation by asking user how their day is going
+
+# asks for numerical rating of day (1-10), repeats until a number is given
+def current_mood():
   rating = ""
   while not rating.isdecimal():
     rating = input(f"Say, {user_name}, on a scale of 1-10, how are you feeling today?\n\n")
@@ -65,7 +67,9 @@ def current_mood(): # starts conversation by asking user how their day is going
   else:
     print("Hmm, that rating is off my charts. I hope its high!")
 
-def sports_questions(): # questions about favorite sport and player, stores as variables for later use
+
+# takes user's favorite_player and favorite_sport for use in conversation_summary()
+def sports_questions(): 
   global favorite_sport
   global favorite_player
   response = input(f"\n{user_name}, which of these sports do you like the most?\nsoccer, football, basketball, or volleyball?\n\n").lower()
@@ -88,7 +92,10 @@ def sports_questions(): # questions about favorite sport and player, stores as v
   input("\nDo you play sports? Do you enjoy it?\n\n")
   print("\nInteresting, I just like to watch them.\n")
 
-def weather_questions():  # asks and stores weather preference of user, then gets weather information about user's location
+
+# gets user's weather_preference and location for use in conversation_summary()
+# uses OWM to display weather data in user's location
+def weather_questions():  
   global weather_preference
   global location
   weather_preference = input(f'\nSo, {user_name}, what type of weather do you prefer?\n\n')
@@ -112,12 +119,16 @@ def weather_questions():  # asks and stores weather preference of user, then get
   print(f'\nBoom! Here are some fast facts about {location} today')
   print("-----------------------------------")
   for key, value in temp_dict.items():
-    print(f'{key}: {value} F')
+    if isinstance(value, float): 
+      print(f'{key}: {value} F')
   print("Status: "+weather.detailed_status)
   print("Sunrise: "+str(weather.sunrise_time(timeformat = 'iso')))
   print("Sunrise: "+str(weather.sunset_time(timeformat = 'iso')))
   print("-----------------------------------\n")
 
+
+# a method for exchanging jokes
+# keeps track of number of jokes for conversation_summary()
 def jokes():
   global joke_count
   global user_jokes
@@ -136,11 +147,6 @@ def jokes():
   else:
     print("\n:(")
 
-
-
-  
-
-    
 
 def chat_questions():
   response = ""
