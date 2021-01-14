@@ -15,7 +15,7 @@ A simple conversation bot. He's only got a few topics memorized, but he'll learn
 This is a required project as part of qualification for Code2College's Elite Program. Students chose one of three project options, with the chatbot project being selected here.
 
 ## Install
-Runs on repl.it Python 3.8.2
+Runs on Python 3.8.2
 
 Imported python libraries include:
  - random
