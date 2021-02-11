@@ -68,6 +68,7 @@ def check_name(name):
     return False
 
   # asks user if name is correct; must enter yes or no
+  
   name_correct = input(f'Is {name}, correct? (yes/no)\n\n')
   while True:
     if name_correct == "yes" or name_correct == "no":
@@ -77,6 +78,7 @@ def check_name(name):
   
   if name_correct == "no":
     return False
+  
   return True
   
 
