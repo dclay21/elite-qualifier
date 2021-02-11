@@ -21,12 +21,13 @@ Imported python libraries include:
  - random
  - pyowm (an OpenWeatherMap module)
  - pyjokes (a database of jokes)
+ - better-profanity (a profanity detection library)
 
 ## Usage
 
 Running main.py will start a conversation, initally asking the user for a name. 
 
-IT'll then proceed to ask you some questions.
+It'll then proceed to ask you some questions.
 
 Sometimes, ConvoBot's question will end with a parenthetical statement. Please choose one of these options to continue the conversation. 
  - Ex: "Which of these sports do you like the most? (soccer, football, basketball, or volleyball?"
