@@ -1,5 +1,6 @@
 import pyjokes
 import random
+from better_profanity import profanity
 from pyowm.owm import OWM
 owm = OWM('4e0abe85da6af91750c42bb8d5043253')
 
@@ -33,7 +34,7 @@ def conversation_summary():
   print("Nice talking to you!")
   quit()
 
-
+# a method that prints a random, generic response
 def generic_response():
   response_list = ["Hmm.", 
   "That's intersting!", 
@@ -46,8 +47,38 @@ def generic_response():
 # learn and store user's name, say greeting
 def ask_name(): 
   global user_name
-  user_name = input("I'm ConvoBot, what's your name?\n\n")
+  while check_name(user_name) == False:
+    user_name = input("What's your name?\n\n").capitalize()
   print(f"\nHi, {user_name}! It's nice to meet you.\n")
+
+# a method to check name for profanity, non-alpha, and user accuracy
+def check_name(name):
+  # covers no user input
+  if len(name) < 1:
+    return False
+  
+  # checks name for only letters
+  if any(chr.isalpha() == False for chr in name):
+    print("I think a name is supposed to have all letters!")
+    return False
+
+  # checks for profanity
+  if profanity.contains_profanity(name):
+    print("You shouldn't say that...")
+    return False
+
+  # asks user if name is correct; must enter yes or no
+  name_correct = input(f'Is {name}, correct? (yes/no)\n\n')
+  while True:
+    if name_correct == "yes" or name_correct == "no":
+      break
+    print("Please enter yes or no.")
+    name_correct = input(f'Is {name}, correct? (yes/no)\n\n')
+  
+  if name_correct == "no":
+    return False
+  return True
+  
 
 
 # asks for numerical rating of day (1-10), repeats until a number is given
@@ -166,6 +197,7 @@ def chat_questions():
   conversation_summary()
 
 if __name__ == "__main__":
+  print("Hello! I'm ConvoBot.")
   ask_name()
   print("\nIf you ever want to stop talking to me, just say 'q', I promise my feelings won't be hurt.\n")
   current_mood()
