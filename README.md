@@ -21,6 +21,7 @@ Imported python libraries include:
  - random
  - pyowm (an OpenWeatherMap module)
  - pyjokes (a database of jokes)
+ - better-profanity (recognizes profanity in input)
 
 ## Usage
 
