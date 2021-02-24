@@ -3,7 +3,7 @@ import unittest
 class TestCheckName(unittest.TestCase):
 
     def test_profanity(self):
-      self.assertFalse(check_name("Shit"))
+      self.assertFalse(check_name("$hit"))
       self.assertTrue(check_name("John"))
 
     

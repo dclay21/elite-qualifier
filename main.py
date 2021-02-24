@@ -19,6 +19,8 @@ user_jokes = []
 """
 conversation methods
 """
+
+# runs after user quits conversation, gives summary of conversation so far
 def conversation_summary():
   print(f"Well, {user_name}, here's what I learned about you:")
   if favorite_sport and favorite_player not in {'q',''}:
@@ -34,6 +36,7 @@ def conversation_summary():
   print("Nice talking to you!")
   quit()
 
+
 # a method that prints a random, generic response
 def generic_response():
   response_list = ["Hmm.", 
@@ -44,12 +47,16 @@ def generic_response():
   "You don't say..."]
   print (random.choice(response_list))
 
+
+
 # learn and store user's name, say greeting
 def ask_name(): 
   global user_name
   while check_name(user_name) == False:
     user_name = input("What's your name?\n\n").capitalize()
   print(f"\nHi, {user_name}! It's nice to meet you.\n")
+
+
 
 # a method to check name for profanity, non-alpha, and user accuracy
 def check_name(name):
@@ -101,6 +108,7 @@ def current_mood():
     print("Hmm, that rating is off my charts. I hope its high!")
 
 
+
 # takes user's favorite_player and favorite_sport for use in conversation_summary()
 def sports_questions(): 
   global favorite_sport
@@ -124,6 +132,7 @@ def sports_questions():
   
   input("\nDo you play sports? Do you enjoy it?\n\n")
   print("\nInteresting, I just like to watch them.\n")
+
 
 
 # gets user's weather_preference and location for use in conversation_summary()
@@ -160,6 +169,7 @@ def weather_questions():
   print("-----------------------------------\n")
 
 
+
 # a method for exchanging jokes
 # keeps track of number of jokes for conversation_summary()
 def jokes():
@@ -181,6 +191,7 @@ def jokes():
     print("\n:(")
 
 
+
 def chat_questions():
   response = ""
   while response != quit_character and response not in {"sports", "weather", "jokes"}:
@@ -197,6 +208,8 @@ def chat_questions():
     elif response != "q":
       print("Sorry, that topic hasn't been added to my database yet. I'll learn eventually!")
   conversation_summary()
+
+
 
 if __name__ == "__main__":
   print("Hello! I'm ConvoBot.")
